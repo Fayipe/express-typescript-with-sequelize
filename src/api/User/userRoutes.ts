@@ -11,9 +11,15 @@ const call = controllerHandler;
 const User = new UserController();
 
 router.use(validation(UserValidationSchema));
+router.get("/", (rq, rs) => rs.send("Good work guys 💃 🕺 🦾 🚴🏽‍♀️"));
+router.get(
+  "/:id",
+  call(User.getUserDetails, (req, _res, _next) => [req.params.id])
+);
 
-router.get("/:id", call(User.getUserDetails, (req, _res, _next) => [req.params.id]));
-
-router.post("/", call(User.addUser, (req, _res, _next) => [req.body]));
+router.post(
+  "/",
+  call(User.addUser, (req, _res, _next) => [req.body])
+);
 
 export const userRouter = router;

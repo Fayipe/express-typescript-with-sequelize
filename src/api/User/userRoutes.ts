@@ -22,4 +22,4 @@ router.post(
   call(User.addUser, (req, _res, _next) => [req.body])
 );
 
-export const userRouter = router;
+export const UserRouter = router;

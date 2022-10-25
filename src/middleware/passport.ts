@@ -149,66 +149,6 @@ export const loginStrategy = new localStrategy(
 );
 
 /**
- * This function is used for admin login strategy
- * @param username
- * @param password
- * @param done
- */
-
-export const adminLoginStrategy = new localStrategy(
-  {
-    usernameField: "username",
-    passwordField: "password",
-  },
-  async (username, password, done) => {
-    try {
-      let loginFailed = false;
-      // find user by username
-      const user = <IUserModel>await UserModel.findOne({ where: { username } });
-      if (user) {
-        // check membership type is admin or not
-        if (user.membership_type == "admin") {
-          let validate: boolean;
-          const pass_updated = user.pass_updated;
-          if (pass_updated == 0) {
-            if (generateSha1Hash(password) != user.password) {
-              validate = false;
-            } else {
-              const passwordHash = bcryptjs.hashSync(password, 10);
-              await UserModel.update(
-                { password: passwordHash, pass_updated: 1 },
-                { where: { username } }
-              );
-              validate = await bcryptjs.compare(password, passwordHash);
-            }
-          } else {
-            validate = await bcryptjs.compare(password, user.password);
-          }
-          if (!validate) {
-            loginFailed = true;
-          }
-        } else {
-          return done(null, false, {
-            message: "You are not authorized to login.",
-          });
-        }
-      } else {
-        loginFailed = true;
-      }
-      if (loginFailed) {
-        return done(null, false, {
-          message: "Incorrect username or password.",
-        });
-      }
-      // Send the user information to the next middleware
-      return done(null, user, { message: "Logged in Successfully" });
-    } catch (error) {
-      return done(error);
-    }
-  }
-);
-
-/**
  * This function is used for jwt strategy
  * @param token
  * @param done

@@ -8,7 +8,7 @@ export interface IUserModel extends IBaseInterface {
   password: string;
   phone_number: number;
   gender: "male" | "female";
-  membership_type: "user" | "admin";
+  membership_type: "user";
   date_of_birth: string;
   email_verification_code: string;
   password_reset_code: string;

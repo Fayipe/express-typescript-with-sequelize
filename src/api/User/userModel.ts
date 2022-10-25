@@ -67,15 +67,7 @@ UserModel.init(
     },
     membership_type: {
       type: Sequelize.ENUM({
-        values: [
-          "user",
-          "ambassador",
-          "shop-admin",
-          "admin",
-          "moderator",
-          "doctor",
-          "counsellor",
-        ],
+        values: ["user"],
       }),
       defaultValue: "user",
     },

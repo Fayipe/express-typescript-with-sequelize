@@ -6,6 +6,8 @@ import { BASE_PATH } from "./config";
 import { errorHandler, global } from "./middleware";
 import { DB } from "./shared/database";
 import { logger } from "./utils/logger";
+import swaggerUi from "swagger-ui-express";
+import * as swaggerDocument from "./swagger/swagger.json";
 
 class App {
   public express = express();
@@ -22,6 +24,11 @@ class App {
   }
 
   private mountRoutes() {
+    this.express.use(
+      "/api-docs",
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument)
+    );
     this.express.use(`${this.basePath}/auth`, AuthRouter);
     this.express.use(`${this.basePath}/user`, UserRouter);
   }

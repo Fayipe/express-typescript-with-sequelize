@@ -1,10 +1,6 @@
 import express from "express";
 import passport from "passport";
-import {
-  loginStrategy,
-  signupStrategy,
-  adminLoginStrategy,
-} from "../../middleware/passport";
+import { loginStrategy, signupStrategy } from "../../middleware/passport";
 import { validation } from "../../middleware/validation";
 import { controllerHandler } from "./../../shared/controllerHandler";
 import { AuthController } from "./authController";
@@ -21,7 +17,6 @@ const Auth = new AuthController();
 
 passport.use("signup", signupStrategy);
 passport.use("login", loginStrategy);
-passport.use("adminLogin", adminLoginStrategy);
 
 router.post(
   "/signup",
@@ -36,12 +31,6 @@ router.post(
   "/signin",
   [validation(LoginValidationSchema)],
   call(Auth.login, (req, res, next) => [req, res, next])
-);
-
-router.post(
-  "/admin-signin",
-  [validation(LoginValidationSchema)],
-  call(Auth.adminLogin, (req, res, next) => [req, res, next])
 );
 
 router.post(

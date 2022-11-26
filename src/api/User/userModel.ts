@@ -1,8 +1,13 @@
 import Sequelize, { Model } from "sequelize";
 import { DB } from "../../shared/database";
 import { logger } from "../../utils/logger";
+<<<<<<< HEAD
 
 import { ALTER_STATE } from "../../config";
+=======
+import withCursor from "sequelize-cursor-pagination";
+
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
 export class UserModel extends Model {}
 UserModel.init(
   {
@@ -19,6 +24,21 @@ UserModel.init(
         },
       },
     },
+<<<<<<< HEAD
+=======
+    first_name: {
+      type: Sequelize.STRING(30),
+      validate: {
+        min: 2,
+      },
+    },
+    last_name: {
+      type: Sequelize.STRING(50),
+      validate: {
+        min: 2,
+      },
+    },
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
     email: {
       type: Sequelize.STRING(50),
       unique: {
@@ -40,6 +60,7 @@ UserModel.init(
     },
     password: {
       type: Sequelize.STRING(191),
+<<<<<<< HEAD
     },
     first_name: {
       type: Sequelize.STRING(10),
@@ -77,6 +98,35 @@ UserModel.init(
         name: "email_verification_code",
         msg: "Duplicate email_verification_code",
       },
+=======
+      validate: {
+        notEmpty: { msg: "password can't be empty" },
+      },
+    },
+    gender: {
+      type: Sequelize.STRING(20),
+    },
+
+    membership_type: {
+      type: Sequelize.ENUM({ values: ["user", "admin"] }),
+      // defaultValue: "user",
+    },
+    address: {
+      type: Sequelize.STRING(150),
+    },
+
+    refresh_token: {
+      type: Sequelize.STRING(150),
+      unique: {
+        name: "refresh_token",
+        msg: "Duplicate refresh token",
+      },
+      allowNull: true,
+    },
+
+    email_verification_code: {
+      type: Sequelize.STRING(150),
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
     },
     password_reset_code: {
       type: Sequelize.STRING(6),
@@ -90,6 +140,12 @@ UserModel.init(
       defaultValue: true,
     },
 
+<<<<<<< HEAD
+=======
+    auth_key: {
+      type: Sequelize.TEXT,
+    },
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
     player_id: {
       type: Sequelize.STRING(50),
     },
@@ -97,6 +153,7 @@ UserModel.init(
       type: Sequelize.INTEGER,
       defaultValue: 0,
     },
+<<<<<<< HEAD
     user_status: {
       type: Sequelize.BOOLEAN,
       defaultValue: true,
@@ -112,6 +169,8 @@ UserModel.init(
     auth_key: {
       type: Sequelize.TEXT,
     },
+=======
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
     username_updated: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
@@ -123,9 +182,23 @@ UserModel.init(
   }
 );
 
+<<<<<<< HEAD
 const options: any = { alter: ALTER_STATE };
 
+=======
+const options: any = { alter: true };
+
+const paginationOptions: any = {
+  methodName: "paginate",
+  primaryKeyField: "id",
+};
+// force: true will drop the table if it already exists
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
 UserModel.sync(options).then(() => {
   logger.info("Users table migrated");
   // Table created
 });
+<<<<<<< HEAD
+=======
+withCursor(paginationOptions)(<any>UserModel);
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d

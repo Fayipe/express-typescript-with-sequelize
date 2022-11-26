@@ -5,6 +5,10 @@
     ],
     "jsRules": {},
     "rules": {
+<<<<<<< HEAD
+=======
+        "triple-equals": false,
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
         "semicolon": true,
         "class-name": true,
         "no-console": false,
@@ -14,7 +18,13 @@
         "no-var-keyword":true,
         "no-angle-bracket-type-assertion":false,
         "prefer-const":false,
+<<<<<<< HEAD
         "no-unused-variable":true
+=======
+        "no-unused-variable":true,
+        "ordered-imports": false,
+        "prefer-for-of": false
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
     },
     "rulesDirectory": []
 }

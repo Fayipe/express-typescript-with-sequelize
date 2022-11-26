@@ -3,7 +3,11 @@
         "target": "es2018",
         "module": "commonjs",
         "outDir": "dist",
+<<<<<<< HEAD
         "sourceMap": false,
+=======
+        "sourceMap": true,
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,

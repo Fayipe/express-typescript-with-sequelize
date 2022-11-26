@@ -6,8 +6,11 @@ import { BASE_PATH } from "./config";
 import { errorHandler, global } from "./middleware";
 import { DB } from "./shared/database";
 import { logger } from "./utils/logger";
+<<<<<<< HEAD
 import swaggerUi from "swagger-ui-express";
 import * as swaggerDocument from "./swagger/swagger.json";
+=======
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
 
 class App {
   public express = express();
@@ -17,13 +20,18 @@ class App {
   }
 
   private boot() {
+<<<<<<< HEAD
     this.initializeDb();
+=======
+    this.initilizeDb();
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
     this.registerMiddlewares();
     this.mountRoutes();
     this.handleUncaughtErrorEvents();
   }
 
   private mountRoutes() {
+<<<<<<< HEAD
     this.express.use(
       "/api-docs",
       swaggerUi.serve,
@@ -31,13 +39,21 @@ class App {
     );
     this.express.use(`${this.basePath}/auth`, AuthRouter);
     this.express.use(`${this.basePath}/user`, UserRouter);
+=======
+    this.express.use(`${this.basePath}/auth`, AuthRouter);
+    this.express.use(`${this.basePath}/users`, UserRouter);
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
   }
 
   private registerMiddlewares() {
     global(this.express);
   }
 
+<<<<<<< HEAD
   private initializeDb() {
+=======
+  private initilizeDb() {
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
     DB.authenticate()
       .then(() => {
         logger.info("Database connection has been established successfully.");
@@ -69,5 +85,9 @@ class App {
   }
 }
 
+<<<<<<< HEAD
 const app = new App().express;
 export default app;
+=======
+export default new App().express;
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d

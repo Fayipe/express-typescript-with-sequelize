@@ -121,6 +121,14 @@ export class AuthController extends BaseController {
     );
   };
 
+<<<<<<< HEAD
+=======
+  public finder = async () => {
+    const gh = await this._authService.finder();
+    return this.sendResponse(gh);
+  };
+
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
   /**
    * This function is used for generating new access and refresh token
    * @param token

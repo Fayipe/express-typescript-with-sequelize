@@ -1,5 +1,9 @@
 import jwt from "jsonwebtoken";
+<<<<<<< HEAD
 import { JWT_SECRET, JWT_SECRET_REFRESHTOKEN } from "./../../config";
+=======
+import { JWT_SECRET, JWT_REFRESH_TOKEN } from "./../../config";
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
 import { IUser, UserModel } from "./../User";
 import { AppError } from "./../../utils/app-error";
 import { IUserModel } from "../../interfaces";
@@ -17,7 +21,11 @@ export class AuthService {
   public async verifyJwtToken(token: string) {
     try {
       // verify the jwt token
+<<<<<<< HEAD
       const decoded = await jwt.verify(token, JWT_SECRET_REFRESHTOKEN);
+=======
+      const decoded = await jwt.verify(token, JWT_REFRESH_TOKEN);
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
       // check the token is verified or not
       if (decoded) {
         // find userDetails from user model by decoded user_id
@@ -31,6 +39,13 @@ export class AuthService {
     }
   }
 
+<<<<<<< HEAD
+=======
+  public finder = async () => {
+    const letyer = await UserModel.findAll({});
+    return letyer;
+  };
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
   /**
    * This function is used for logout
    *
@@ -96,7 +111,11 @@ export class AuthService {
   public async generateRefreshToken(user: IUser) {
     const body = { id: user.id, username: user.username };
     // generate jwt access token using jwt_secret
+<<<<<<< HEAD
     const refreshToken = jwt.sign({ user: body }, JWT_SECRET_REFRESHTOKEN, {
+=======
+    const refreshToken = jwt.sign({ user: body }, JWT_REFRESH_TOKEN, {
+>>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
       expiresIn: "365d",
     });
     return refreshToken;

@@ -1,5 +1,7 @@
-import { IUser, UserModel } from ".";
+// import { IUser } from ".";
 import { BaseController } from "../baseController";
+import { IUser } from "./IUser";
+import { UserService } from "./userService";
 
 /**
  * User controller
@@ -8,14 +10,40 @@ import { BaseController } from "../baseController";
  * @class UserController
  */
 export class UserController extends BaseController {
-    // private _userService = new UserService();
+  private _userService = new UserService();
 
-    public getUserDetails = async (id) => {
-    }
+  public index = () => {
+    return this.sendResponse("hello!");
+  };
+  /**
+   * getAllUsers
+   */
+  public getAllUsers = async () => {
+    const users = await this._userService.getAllUser();
+    return this.sendResponse(users);
+  };
 
-    public addUser = async (user: IUser) => {
-        console.log(UserModel);
-        const i = await UserModel.create(user);
-        return this.sendResponse(i);
-    }
+  /**
+   * getSingleUser
+   */
+  public getUser = async (username: string) => {
+    const user = await this._userService.getUser(username);
+    return this.sendResponse(user);
+  };
+
+  /**
+   * updates user data
+   */
+  public updateUser = async (user: IUser, data: IUser) => {
+    const updated = await this._userService.updateUser(user, data);
+    return this.sendResponse(updated);
+  };
+
+  /**
+   * getUserStatus
+   */
+  public getUserStatus = async (username: string) => {
+    const user = await this._userService.getUserStatus(username);
+    return this.sendResponse(user);
+  };
 }

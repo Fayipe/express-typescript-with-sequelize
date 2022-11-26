@@ -49,7 +49,7 @@ router.post(
 
 router.get(
   "/verify-code",
-  call(Auth.verifyResetCode, (req, _res, _next) => [req.query.c])
+  call(Auth.verifyResetCode, (req, _res, _next) => req.query.c)
 );
 
 router.post(
@@ -75,6 +75,8 @@ router.post(
   ])
 );
 
-router.get("/", (rq, rs) => rs.send("good"));
+// router.get("/", (rq, rs) => rs.send("good"))
+
+
 
 export const AuthRouter = router;

@@ -1,64 +1,11 @@
 {
-<<<<<<< HEAD
-  "name": "node-typescript",
-  "version": "1.0.0",
-  "description": "Node with express using typescript",
-=======
   "name": "bknd",
   "version": "1.0.0",
   "description": "bknd api built on TypeScript",
->>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
   "main": "./dist/index.js",
   "scripts": {
     "post-install": "mkdir ./logs",
     "compile": "tsc",
-<<<<<<< HEAD
-    "start": "tsc && node ./dist",
-    "watch": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Taiwo Fayipe",
-  "license": "ISC",
-  "dependencies": {
-    "@hapi/joi": "^16.1.8",
-    "@types/hapi__joi": "^16.0.9",
-    "app-root-path": "^2.2.1",
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^6.2.0",
-    "express": "^4.17.1",
-    "joi": "^17.6.4",
-    "lodash": "^4.17.21",
-    "morgan": "^1.9.1",
-    "mysql2": "^1.7.0",
-    "nodemailer": "^6.8.0",
-    "passport": "^0.6.0",
-    "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^5.21.3",
-    "sequelize-cli": "^5.5.1",
-    "sha1": "^1.1.1",
-    "swagger-ui-express": "^4.5.0",
-    "tslib": "^1.10.0",
-    "winston": "^3.2.1"
-  },
-  "devDependencies": {
-    "@types/app-root-path": "^1.2.4",
-    "@types/cors": "^2.8.6",
-    "@types/dotenv": "^6.1.1",
-    "@types/express": "^4.17.2",
-    "@types/joi": "^17.2.3",
-    "@types/lodash": "^4.14.149",
-    "@types/morgan": "^1.7.37",
-    "@types/node": "^10.17.14",
-    "@types/passport": "^1.0.11",
-    "nodemon": "^2.0.20",
-    "tslint": "^5.20.1",
-    "typescript": "^4.1.2"
-  },
-  "resolutions": {
-    "@types/express-serve-static-core": "4.17.20"
-=======
     "start": "tsc && node ./dist/index.js",
     "watch": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -120,6 +67,5 @@
     "nodemon": "^1.19.4",
     "tslint": "^5.11.0",
     "typescript": "^3.2.2"
->>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
   }
 }

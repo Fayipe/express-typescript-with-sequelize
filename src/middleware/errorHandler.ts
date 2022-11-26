@@ -13,11 +13,7 @@ export default (err, req, res, next) => {
         }
     }
     logger.error(
-<<<<<<< HEAD
         `${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${
-=======
-        `${err.statusCode || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${
->>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
         req.ip
         } - Stack: ${err.stack}`,
     );

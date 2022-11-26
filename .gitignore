@@ -1,9 +1,4 @@
 node_modules
 dist
 logs/**
-<<<<<<< HEAD
-
-=======
-public/**
->>>>>>> e4605dc2bb5ec2fa8a8b4fd6a32b185a7876479d
 /.env

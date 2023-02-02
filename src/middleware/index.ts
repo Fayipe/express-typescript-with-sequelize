@@ -1,4 +1,4 @@
-import { authorize } from "./authorization";
+import { authorize, adminAuthorize } from "./authorization";
 
 import errorHandler from "./errorHandler";
 import global from "./global";
@@ -14,4 +14,5 @@ export {
   loginStrategy,
   signupStrategy,
   FrontendAssetsUpload,
+  adminAuthorize
 };

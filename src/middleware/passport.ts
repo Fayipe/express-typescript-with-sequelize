@@ -12,6 +12,7 @@ import { IUserModel } from "../interfaces";
 
 import { Op } from "sequelize";
 import validator from "validator";
+import { ProfileModel } from "../api/Profile/profileModel";
 
 /**
  * This function is used for signup strategy
@@ -77,6 +78,9 @@ export const signupStrategy = new localStrategy(
         pass_updated: 1,
         ...body,
       });
+      // create profile
+      const profile = await ProfileModel.create()
+      await user.setProfile(profile);
 
       // Send the user information to the next middleware
       return done(null, user);

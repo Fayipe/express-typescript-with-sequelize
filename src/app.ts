@@ -2,6 +2,7 @@ import express from "express";
 import { AuthRouter } from "./api/Auth";
 import { BlogRouter } from "./api/Blog";
 import  { BlogCategoryRouter } from "./api/BlogCategory"
+import { ProfileRouter } from "./api/Profile"
 
 import { UserRouter } from "./api/User";
 import { BASE_PATH } from "./config";
@@ -28,6 +29,7 @@ class App {
     this.express.use(`${this.basePath}/users`, UserRouter);
     this.express.use(`${this.basePath}/blog`, BlogRouter);
     this.express.use(`${this.basePath}/blogCategory`, BlogCategoryRouter);
+    this.express.use(`${this.basePath}/profile`, ProfileRouter);
   }
 
   private registerMiddlewares() {

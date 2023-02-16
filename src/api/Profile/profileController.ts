@@ -10,8 +10,14 @@ export class ProfileController extends BaseController {
         return this.sendResponse(updatedProfile)
        }
 
-       public getProfile = async (username) => {
+    public getProfile = async (username) => {
         const profile = await this._profileService.getProfile(username)
         return this.sendResponse(profile) 
         }
+
+    public uploadPicture = async (user: any, photo: any) => {
+        const profilePicture = await this._profileService.uploadPicture(user, photo)
+        return this.sendResponse(profilePicture)
+    }
+    
     }

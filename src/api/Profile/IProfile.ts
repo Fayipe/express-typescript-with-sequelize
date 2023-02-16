@@ -2,7 +2,6 @@ import { IBaseInterface } from "../baseInterface";
 
 export interface IProfile extends IBaseInterface {
   // type any is used to prevent error on validation level
-  profile_picture_url: any;
   relationship_status: any;
   occupation: any;
   highest_education: any;

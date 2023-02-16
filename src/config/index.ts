@@ -16,3 +16,7 @@ export const JWT_REFRESH_TOKEN = process.env.JWT_REFRESH_TOKEN;
 
 export const GMAIL_USERNAME = process.env.GMAIL_USERNAME;
 export const GMAIL_PASSWORD = process.env.GMAIL_PASSWORD;
+
+export const CLOUDINARY_USER_NAME = process.env.CLOUDINARY_USER_NAME;
+export const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
+export const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;

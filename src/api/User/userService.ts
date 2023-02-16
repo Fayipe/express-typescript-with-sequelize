@@ -1,5 +1,6 @@
 import bcryptjs from "bcryptjs";
 import { UserModel } from "./userModel";
+import { ProfileModel } from "../Profile/profileModel"
 import { AppError } from "../../utils/app-error";
 import { USER_EXCLUDES } from "../../utils/helpers";
 
@@ -50,6 +51,7 @@ export class UserService {
   public getUser = async (username: string) => {
     let user = await UserModel.findOne({
       where: { username },
+      include: [{model: ProfileModel}],
       attributes: {
         exclude: ["password", "email_verification_code", "auth_key"],
       },

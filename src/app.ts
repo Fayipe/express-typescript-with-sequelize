@@ -1,9 +1,10 @@
 import express from "express";
 import { AuthRouter } from "./api/Auth";
 import { BlogRouter } from "./api/Blog";
-import  { BlogCategoryRouter } from "./api/BlogCategory"
-import { ProfileRouter } from "./api/Profile"
-
+import { BlogCategoryRouter } from "./api/BlogCategory";
+import { ProfileRouter } from "./api/Profile";
+import swaggerUi from "swagger-ui-express";
+import * as swaggerDocument from "./swagger/swagger.json";
 import { UserRouter } from "./api/User";
 import { BASE_PATH } from "./config";
 import { errorHandler, global } from "./middleware";
@@ -25,6 +26,11 @@ class App {
   }
 
   private mountRoutes() {
+    this.express.use(
+      "/api-docs",
+      swaggerUi.serve,
+      swaggerUi.setup(swaggerDocument)
+    );
     this.express.use(`${this.basePath}/auth`, AuthRouter);
     this.express.use(`${this.basePath}/users`, UserRouter);
     this.express.use(`${this.basePath}/blog`, BlogRouter);

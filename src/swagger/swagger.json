@@ -22,6 +22,9 @@
     },
     {
       "name": "Blog-Category"
+    },
+    {
+      "name": "Profile"
     }
   ],
   "paths": {
@@ -860,6 +863,602 @@
         ],
         "x-codegen-request-body-name": "body"
       }
+    },
+    "/blogCategory/create": {
+      "post": {
+        "tags": ["Blog-Category"],
+        "summary": " New Blog Category",
+        "description": "Create New Blog Category",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AcceptLanguage"
+          }
+        ],
+        "requestBody": {
+          "description": "An object defining our schema for this request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": ["category_name"],
+                "type": "object",
+                "properties": {
+                  "category_name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/successResponseObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badRequestResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/serverErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "userAccessToken": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/blogCategory/all": {
+      "get": {
+        "tags": ["Blog-Category"],
+        "summary": "Get Blog Categories",
+        "description": "Get All Blog Categories",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AcceptLanguage"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/successResponseObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/forbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noDataResponseObject"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/serverErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "userAccessToken": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/blogCategory/delete/{id}": {
+      "delete": {
+        "tags": ["Blog-Category"],
+        "summary": "Delete Blog Category",
+        "description": "Delete a Blog Category, Should Provide an id",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AcceptLanguage"
+          },
+          {
+            "$ref": "#/components/parameters/Id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/successResponseObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/forbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noDataResponseObject"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/serverErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "userAccessToken": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/blogCategory/update/{id}": {
+      "put": {
+        "tags": ["Blog-Category"],
+        "summary": "Update Blog Category",
+        "description": "Update Blog Category, Should Provide id",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AcceptLanguage"
+          },
+          {
+            "$ref": "#/components/parameters/Id"
+          }
+        ],
+        "requestBody": {
+          "description": "An object defining our schema for this request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "category_name"
+                ],
+                "type": "object",
+                "properties": {
+                  "category_name": {
+                    "type": "string"
+                  }
+                  
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/successResponseObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/forbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noDataResponseObject"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/serverErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "userAccessToken": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/profile/{username}": {
+      "get": {
+        "tags": ["Profile"],
+        "summary": "Get User Profile",
+        "description": "Get User Profile , Should provide username",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AcceptLanguage"
+          },
+          {
+            "$ref": "#/components/parameters/UserName"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/successResponseObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/forbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noDataResponseObject"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/serverErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "userAccessToken": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/profile/update": {
+      "put": {
+        "tags": ["Profile"],
+        "summary": "Update User Profile",
+        "description": "Update User Profile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AcceptLanguage"
+          }
+        ],
+        "requestBody": {
+          "description": "An object defining our schema for this request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "required": [
+                  "profile_picture_url",
+                  "relationship_status",
+                  "occupation",
+                  "highest_education",
+                  "current_education",
+                  "bio",
+                  "location",
+                  "facebook_url",
+                  "twitter_url",
+                  "instagram_url",
+                  "snapchat_id"
+                ],
+                "type": "object",
+                "properties": {
+                  "profile_picture_url": {
+                    "type": "string"
+                  },
+                  "relationship_status": {
+                    "type": "string"
+                  },
+                  "occupation": {
+                    "type": "string"
+                  },
+                  "highest_education": {
+                    "type": "string"
+                  },
+                  "current_education": {
+                    "type": "string"
+                  },
+                  "bio": {
+                    "type": "string",
+                    "default": "user"
+                  },
+                  "location": {
+                    "type": "string"
+                  },
+                  "facebook_url": {
+                    "type": "string"
+                  },
+                  "twitter_url": {
+                    "type": "string"
+                  },
+                  "instagram_url": {
+                    "type": "string"
+                  },
+                  "snapchat_id": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/successResponseObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/forbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noDataResponseObject"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/serverErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "userAccessToken": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
+    },
+    "/profile/uploadPicture": {
+      "post": {
+        "tags": ["Profile"],
+        "summary": "Upload  Profile Picture",
+        "description": "Upload Profile Picture",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/AcceptLanguage"
+          }
+        ],
+        "requestBody": {
+          "description": "An object defining our schema for this request",
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "photo"
+                ],
+                "type": "object",
+                "properties": {
+                  "photo": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/successResponseObject"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/badRequestResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/forbiddenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noDataResponseObject"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/serverErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "userAccessToken": []
+          }
+        ],
+        "x-codegen-request-body-name": "body"
+      }
     }
   },
   "components": {
@@ -1251,5 +1850,14 @@
         "bearerFormat": "JWT"
       }
     }
+   
+    
+    
+
+
+    
+
+
+
   }
 }

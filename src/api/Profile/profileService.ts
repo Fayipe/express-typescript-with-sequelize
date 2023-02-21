@@ -3,13 +3,13 @@ import { ProfileModel } from './profileModel';
 import { UserModel } from '../User';
 import { IProfile } from './IProfile';
 // const path = require('path')
-const cloudinary = require('../../helper/imageUpload');
+import { cloudinary } from '../../helper/imageUpload';
 
 
 export class ProfileService {
     public uploadPicture = async (user: any, photo:any ) => {
         const result = await cloudinary.uploader
-      .upload(photo.path, { folder: "Profile" }, function (result) {
+        .upload(photo.path, { folder: "Profile" }, function (result) {
         return result;
       })
       .catch((error) => console.log(error));
